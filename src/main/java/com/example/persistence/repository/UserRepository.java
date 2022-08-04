@@ -1,4 +1,4 @@
-package com.example.persistence.repo;
+package com.example.persistence.repository;
 
 import java.util.List;
 
