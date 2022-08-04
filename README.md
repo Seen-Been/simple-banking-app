@@ -16,28 +16,26 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 * delete user from id <br>
 * delete account from id <br>
 
-#### Project Structure
-#### -----------------
+### Project Structure
 <img src=structure.png>
 
 
-#### Database
-#### --------
+### Database
 <img src=database.png>
 
 #### Execution
 #### ---------
-##### Create user <img src=createuser.png>
-##### Read all users <img src=readalluser.png>
-##### Read 1 user from id <img src=readiduser.png>
-##### Update user <img src=updateuser.png>
-##### Delete user <img src=deleteuser.png>
-##### Login Check <img src=userlogin.png>
-##### Create account <img src=createaccount.png>
-##### Read all accounts <img src=readallaccount.png>
-##### Read 1 account from id <img src=readidaccount.png>
-##### Update account <img src=updateaccount.png>
-##### Delete account <img src=deleteaccount.png>
+##### Create user <br> <img width="600" src=".md/createuser.png">
+##### Read all users <br> <img width="600" src=.md/readalluser.png>
+##### Read 1 user from id <br> <img width="600" src=.md/readiduser.png>
+##### Update user <br> <img width="600" src=.md/updateuser.png>
+##### Delete user <br> <img width="600" src=.md/deleteuser.png>
+##### Login Check <br> <img width="600" src=.md/userlogin.png>
+##### Create account <br> <img width="600" src=.md/createaccount.png>
+##### Read all accounts <br> <img width="600" src=.md/readallaccount.png>
+##### Read 1 account from id <br> <img width="600" src=.md/readidaccount.png>
+##### Update account <br> <img width="600" src=.md/updateaccount.png>
+##### Delete account <br> <img width="600" src=.md/deleteaccount.png>
 
 ### Instructions for executing project:
 * Ensure that port 8080 is free
