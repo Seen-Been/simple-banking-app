@@ -23,7 +23,7 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 ### Database
 <img width="600" src=.md/database.png>
 
-#### Execution
+### Execution
 #### ---------
 ##### Create user <br> <img width="600" src=".md/createuser.png">
 ##### Read all users <br> <img width="600" src=.md/readalluser.png>
@@ -39,6 +39,7 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 
 ### Instructions for executing project:
 * Ensure that port 8080 is free
+* Ensure Lombok is installed onto STS
 * Run project as Spring Boot App from project explorer
 * (currently) no front end is available for inputting data, so POSTMAN will have to be used with the http addresses assigned in the user and account controllers.
 
