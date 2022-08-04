@@ -7,8 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,10 +24,7 @@ public class Account
 	private long id;
 	
 	private String accountType;
-	@ManyToOne(targetEntity = User.class)
-	private User user;
 	
-	@NotNull
 	@Column(unique=true, length = 8)
 	private String accountNumber;
 	
@@ -38,5 +36,9 @@ public class Account
 	
 	@Min(value = 0)
 	@Column(scale = 2)
-	private float balance;
+	private double balance;
+	
+	@ManyToOne(targetEntity = User.class)
+	@JsonBackReference
+	private User user;
 }

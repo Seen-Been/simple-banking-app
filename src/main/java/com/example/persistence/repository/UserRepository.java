@@ -19,7 +19,7 @@ public interface UserRepository extends JpaRepository<User, Long>
 	
 	//FIND BY ID
 	@Query("select u from User u where u.id =?1")
-	List<User> findUserById(long id);
+	List<User> findUserById(long userId);
 	
 	//LOGIN DETAILS CHECK
 	@Query("select u from User u where u.username =?1 and u.password =?2")

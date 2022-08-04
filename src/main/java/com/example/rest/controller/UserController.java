@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -52,20 +53,20 @@ public class UserController
 
 	// READ BY ID
 	@GetMapping("/readid/{id}")
-	public List<User> readById(@PathVariable long id)
+	public UserDto readById(@PathVariable long id)
 	{
 		return this.uService.findUserById(id);
 	}
 		
 	// UPDATE USER
-	@PostMapping("/update/{id}")
+	@PutMapping("/update/{id}")
 	public UserDto update(@PathVariable long id,@RequestBody User user)
 	{
 		return this.uService.updateUser(id, user);
 	}
 
 	// DELETE USER
-	@DeleteMapping("/delete/{user}")
+	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable long id)
 	{
 		this.uService.deleteUser(id);

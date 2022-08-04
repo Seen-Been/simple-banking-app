@@ -1,6 +1,9 @@
 package com.example.rest.dto;
 
+import javax.persistence.Column;
+
 import com.example.persistence.domain.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +13,8 @@ import lombok.NoArgsConstructor;
 public class AccountDto
 {
 	private String accountType;
-	//private User user;
 	private String accountNumber;
-	private float balance;
+	@Column(scale = 2)
+	private double balance;
+	private User user;
 }

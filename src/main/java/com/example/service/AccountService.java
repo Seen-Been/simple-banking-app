@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.exception.UserNotFoundException;
 import com.example.persistence.domain.Account;
 import com.example.persistence.domain.User;
 import com.example.persistence.repository.AccountRepository;
@@ -41,10 +42,10 @@ public class AccountService
 		return this.aRepo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
 	}
 	
-	//UPDATE ACCOUNT
-	public AccountDto updateAccount(long id, Account account)
+	// UPDATE ACCOUNT
+	public AccountDto updateAccount(long accountId, Account account)
 	{
-		Optional<Account> tempUser = this.aRepo.findById(id);
+		Optional<Account> tempUser = this.aRepo.findById(accountId);
 		Account existing = tempUser.get();
 		User user = new User();
 			
@@ -59,11 +60,18 @@ public class AccountService
 		Account updated = this.aRepo.save(existing);
 		return this.mapToDTO(updated);
 	}
-	//DELETE ACCOUNT
-	public boolean deleteUser(long id)
+	// DELETE ACCOUNT
+	public boolean deleteUser(long accountId)
 	{
-		this.aRepo.deleteById(id);
-		boolean exists = this.aRepo.existsById(id);
+		this.aRepo.deleteById(accountId);
+		boolean exists = this.aRepo.existsById(accountId);
 		return !exists;
+	}
+
+	// FIND BY ID
+	public AccountDto findAccountById(long id)
+	{
+		Account found = this.aRepo.findById(id).orElseThrow(UserNotFoundException::new);
+		return this.mapToDTO(found);
 	}
 }

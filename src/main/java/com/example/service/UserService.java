@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.exception.UserNotFoundException;
-import com.example.persistence.domain.Account;
 import com.example.persistence.domain.User;
 import com.example.persistence.repository.UserRepository;
 import com.example.rest.dto.UserDto;
@@ -43,11 +42,12 @@ public class UserService
 	}
 	
 	//UPDATE USER
-	public UserDto updateUser(long id, User user)
+	public UserDto updateUser(long userId, User user)
 	{
-		Optional<User> tempUser = this.uRepo.findById(id);
+		Optional<User> tempUser = this.uRepo.findById(userId);
 		User existing = tempUser.get();
 		existing.setFirstName(user.getFirstName());
+		existing.setSurname(user.getSurname());
 		existing.setUsername(user.getUsername());
 		existing.setHouse(user.getHouse());
 		existing.setStreet(user.getStreet());
@@ -60,10 +60,10 @@ public class UserService
 	}
 	
 	//DELETE USER
-	public boolean deleteUser(long id)
+	public boolean deleteUser(long userId)
 	{
-		this.uRepo.deleteById(id);
-		boolean exists = this.uRepo.existsById(id);
+		this.uRepo.deleteById(userId);
+		boolean exists = this.uRepo.existsById(userId);
 		return !exists;
 	}
 	
@@ -90,8 +90,9 @@ public class UserService
 	}
 	
 	// RETRIEVE USER BY ID
-		public List<User> findUserById(long id)
+		public UserDto findUserById(long id)
 		{
-			return this.uRepo.findUserById(id);
+			User found = this.uRepo.findById(id).orElseThrow(UserNotFoundException::new);
+			return this.mapToDTO(found);
 		}
 }
