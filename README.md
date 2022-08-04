@@ -17,11 +17,11 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 * delete account from id <br>
 
 ### Project Structure
-<img src=structure.png>
+<img src=".md/structure.png">
 
 
 ### Database
-<img src=database.png>
+<img width="600" src=.md/database.png>
 
 #### Execution
 #### ---------
