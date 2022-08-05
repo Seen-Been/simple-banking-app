@@ -43,8 +43,7 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 * Run project as Spring Boot App from project explorer
 * (currently) no front end is available for inputting data, so POSTMAN will have to be used with the http addresses assigned in the user and account controllers.
 
-
-
-
+### Future Revisions
+In the future I would like to provide functionality (such as interest rates and penalties for withdrawing money) from certain account types. I would like to add a front end to make logging in and CRUD operations much more user-friendly.
 
 
