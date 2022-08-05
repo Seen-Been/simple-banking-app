@@ -32,6 +32,19 @@ import lombok.NoArgsConstructor;
 @Data
 public class User
 {
+	
+	
+	public User(String username, String firstName, String surname, String email, String phone, List<Account> account)
+	{
+		super();
+		this.username = username;
+		this.firstName = firstName;
+		this.surname = surname;
+		this.email = email;
+		this.phone = phone;
+		this.account = account;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

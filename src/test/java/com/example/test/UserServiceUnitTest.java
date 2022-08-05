@@ -3,14 +3,12 @@ package com.example.test;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.example.persistence.domain.User;
 import com.example.persistence.repository.UserRepository;
-import com.example.rest.dto.UserDto;
 import com.example.service.UserService;
 
 @SpringBootTest
@@ -18,13 +16,6 @@ public class UserServiceUnitTest
 {
 	@Autowired
 	private UserService service;
-	
-	//@Autowired 
-	private ModelMapper modelMapper;
-	
-	private UserDto mapToDTO(User user) {
-        return this.modelMapper.map(user, UserDto.class);
-    }
 	
 	@MockBean
 	private UserRepository repo;

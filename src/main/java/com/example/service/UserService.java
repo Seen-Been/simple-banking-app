@@ -90,9 +90,9 @@ public class UserService
 	}
 	
 	// RETRIEVE USER BY ID
-		public UserDto findUserById(long id)
-		{
-			User found = this.uRepo.findById(id).orElseThrow(UserNotFoundException::new);
-			return this.mapToDTO(found);
-		}
+	public UserDto findUserById(long id)
+	{
+		User found = this.uRepo.findById(id).orElseThrow(UserNotFoundException::new);
+		return this.mapToDTO(found);
+	}
 }
