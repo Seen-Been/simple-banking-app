@@ -33,13 +33,21 @@ public class UserController
 	
 //	------------------Postman------------------
 	
-	// CREATE USER
+	// CREATE USER DTO
 	@PostMapping("/create")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public UserDto create(@RequestBody User user)
 	{
 		return this.uService.addUser(user);
 	}
+	
+	// CREATE USER ENTITY
+		@PostMapping("/createentity")
+		@ResponseStatus(code = HttpStatus.CREATED)
+		public User createEntity(@RequestBody User user)
+		{
+			return this.uService.addUserEntity(user);
+		}
 	
 	// READ ALL
 	@GetMapping("/read")
