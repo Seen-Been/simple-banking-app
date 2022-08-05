@@ -24,7 +24,6 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 <img width="600" src=.md/database.png>
 
 ### Execution
-#### ---------
 ##### Create user <br> <img width="600" src=".md/createuser.png">
 ##### Read all users <br> <img width="600" src=.md/readalluser.png>
 ##### Read 1 user from id <br> <img width="600" src=.md/readiduser.png>
