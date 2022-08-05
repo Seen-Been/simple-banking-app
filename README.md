@@ -37,7 +37,7 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 ##### Delete account <br> <img width="600" src=.md/deleteaccount.png>
 
 ### Testing
-<img width = 600 src = .md/testresults.jpg>
+<img width = 600 src = .md/TestResults.jpg>
 
 ### Instructions for executing project:
 * Ensure that port 8080 is free
