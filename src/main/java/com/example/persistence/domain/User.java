@@ -19,7 +19,6 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -33,18 +32,6 @@ import lombok.NoArgsConstructor;
 public class User
 {
 	
-	
-	public User(String username, String firstName, String surname, String email, String phone, List<Account> account)
-	{
-		super();
-		this.username = username;
-		this.firstName = firstName;
-		this.surname = surname;
-		this.email = email;
-		this.phone = phone;
-		this.account = account;
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -86,7 +73,7 @@ public class User
 	
 	@Min(value = 0)
 	@Max(value = 2)
-	private int access; // 0 = admin, 1 = op, 2 = customer
+	private int access; // 0 = admin, 1 = operator, 2 = customer
 
 
 	

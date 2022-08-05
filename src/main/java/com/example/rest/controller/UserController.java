@@ -30,6 +30,7 @@ public class UserController
 		super();
 		this.uService = uService;
 	}
+	
 //	------------------Postman------------------
 	
 	// CREATE USER

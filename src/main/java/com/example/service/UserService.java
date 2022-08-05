@@ -17,7 +17,7 @@ import com.example.rest.dto.UserDto;
 public class UserService
 {
 	@Autowired
-	private UserRepository uRepo;
+	private UserRepository repo;
 	@Autowired
 	private ModelMapper mapper;
 
@@ -31,20 +31,20 @@ public class UserService
 	// CREATE USER
 	public UserDto addUser(User user)
 	{
-		User saved = this.uRepo.save(user);
+		User saved = this.repo.save(user);
 		return this.mapToDTO(saved);
 	}
 	
 	// READ ALL
 	public List<UserDto> readUser()
 	{
-		return this.uRepo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
+		return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
 	}
 	
 	//UPDATE USER
 	public UserDto updateUser(long userId, User user)
 	{
-		Optional<User> tempUser = this.uRepo.findById(userId);
+		Optional<User> tempUser = this.repo.findById(userId);
 		User existing = tempUser.get();
 		existing.setFirstName(user.getFirstName());
 		existing.setSurname(user.getSurname());
@@ -55,15 +55,15 @@ public class UserService
 		existing.setCounty(user.getCounty());
 		existing.setEmail(user.getEmail());
 		existing.setPhone(user.getPhone());
-		User updated = this.uRepo.save(existing);
+		User updated = this.repo.save(existing);
 		return this.mapToDTO(updated);
 	}
 	
 	//DELETE USER
 	public boolean deleteUser(long userId)
 	{
-		this.uRepo.deleteById(userId);
-		boolean exists = this.uRepo.existsById(userId);
+		this.repo.deleteById(userId);
+		boolean exists = this.repo.existsById(userId);
 		return !exists;
 	}
 	
@@ -73,7 +73,7 @@ public class UserService
 	public int checkDetails(String username, String password)
 	{
 		int flag = 0;
-		if(!uRepo.login(username, password).isEmpty())
+		if(!repo.login(username, password).isEmpty())
 		{
 			flag = 1;
 			System.out.println("Inside " + flag);
@@ -86,13 +86,13 @@ public class UserService
 	// RETRIEVE USER BY NAME
 	public List<User> findUserByName(String firstName, String surname)
 	{
-		return this.uRepo.findUserByName(firstName, surname);
+		return this.repo.findUserByName(firstName, surname);
 	}
 	
 	// RETRIEVE USER BY ID
 	public UserDto findUserById(long id)
 	{
-		User found = this.uRepo.findById(id).orElseThrow(UserNotFoundException::new);
+		User found = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
 		return this.mapToDTO(found);
 	}
 }

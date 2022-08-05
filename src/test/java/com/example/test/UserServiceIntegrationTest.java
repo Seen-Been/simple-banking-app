@@ -13,7 +13,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.example.persistence.domain.User;
-import com.example.rest.dto.UserDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
@@ -22,9 +21,6 @@ public class UserServiceIntegrationTest
 {
 	@Autowired
 	private MockMvc mock;
-	
-	//@Autowired
-	//private ModelMapper modelMapper;
 	
 	@Autowired
 	private ObjectMapper objectMapper;
@@ -41,7 +37,7 @@ public class UserServiceIntegrationTest
 		mockRequest.accept(MediaType.APPLICATION_JSON);
 		
 		ResultMatcher matchStatus = MockMvcResultMatchers.status().isCreated();
-		//ResultMatcher matchContent = MockMvcResultMatchers.content().json(this.objectMapper.writeValueAsString(User.class));
+		//ResultMatcher matchContent = MockMvcResultMatchers.content().json(this.objectMapper.writeValueAsString(CreateUserDto.class));
 		
 		this.mock
 			.perform(mockRequest)

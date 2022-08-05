@@ -16,7 +16,7 @@ public class UserServiceUnitTest
 {
 	@Autowired
 	private UserService service;
-	
+
 	@MockBean
 	private UserRepository repo;
 	
@@ -25,9 +25,7 @@ public class UserServiceUnitTest
 	{
 		final User TEST_USER = new User(null, "SeenBeen", "pass123", "Sean", "Heathcote", "sean@gmail.com", "91729384938", "5", "New Street", "M34RNB", "Greater Manchester", null, 0);
 		final User TEST_SAVED_USER = new User(1L, "SeenBeen", "pass123", "Sean", "Heathcote", "sean@gmail.com", "91729384938", "5", "New Street", "M34RNB", "Greater Manchester", null, 0);
-		
-		//User saved = this.repo.save(TEST_USER);
-		
+
 		Mockito.when(this.repo.save(TEST_USER)).thenReturn(TEST_SAVED_USER);
 		Assertions.assertThat(this.service.addUser(TEST_USER)).isEqualTo(TEST_SAVED_USER);
 	}
