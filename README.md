@@ -48,4 +48,12 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 ### Future Revisions
 In the future I would like to provide functionality (such as interest rates and penalties for withdrawing money) from certain account types. I would like to add a front end to make logging in and CRUD operations much more user-friendly.
 
+#### Tools used:
+* Java
+* Spring Boot
+* MySQL
+* Maven
+* GitHub
+* Git
+
 
