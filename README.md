@@ -37,9 +37,9 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 ##### Delete account <br> <img width="600" src=.md/deleteaccount.png>
 
 ### Testing
-CRUD <br> <img width = 600 src=.md/testcrud.JPG>
-Rest init <br> <img width = 600 src=.md/testrest.png>
-Create integration for user <br> <img src=.md/testcreate.png>
+####CRUD <br> <img width = 600 src=.md/testcrud.JPG> <br>
+####Rest init <br> <img width = 600 src=.md/testrest.png> <br>
+####Create integration for user <br> <img src=.md/testcreate.png>
 
 ### Instructions for executing project:
 * Ensure that port 8080 is free
