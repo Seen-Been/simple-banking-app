@@ -41,14 +41,6 @@ public class UserController
 		return this.uService.addUser(user);
 	}
 	
-	// CREATE USER ENTITY
-		@PostMapping("/createentity")
-		@ResponseStatus(code = HttpStatus.CREATED)
-		public User createEntity(@RequestBody User user)
-		{
-			return this.uService.addUserEntity(user);
-		}
-	
 	// READ ALL
 	@GetMapping("/read")
 	public List<UserDto> readAll()

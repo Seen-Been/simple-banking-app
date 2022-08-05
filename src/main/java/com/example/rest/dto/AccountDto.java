@@ -3,7 +3,6 @@ package com.example.rest.dto;
 import javax.persistence.Column;
 
 import com.example.persistence.domain.User;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

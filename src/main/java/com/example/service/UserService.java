@@ -35,15 +35,6 @@ public class UserService
 		return this.mapToDTO(saved);
 	}
 	
-
-	/* CREATE USER ENTITY - Exists purely for the unit test because QA-Community
-	 * does not explain how to conduct the tests when addUser returns a DTO(like the
-	 * original create method above) and not a POJO/entity	 */
-	public User addUserEntity(User user)
-	{
-		return this.repo.save(user);
-	}
-	
 	// READ ALL
 	public List<UserDto> readUser()
 	{
