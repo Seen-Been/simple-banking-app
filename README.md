@@ -37,7 +37,9 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 ##### Delete account <br> <img width="600" src=.md/deleteaccount.png>
 
 ### Testing
-<img width = 600 src = .md/TestResults.jpg>
+CRUD <br> <img width = 600 src=.md/testcrud.JPG>
+Rest init <br> <img width = 600 src=.md/testrest.png>
+Create integration for user <br> src=.md/testcreate.png
 
 ### Instructions for executing project:
 * Ensure that port 8080 is free
@@ -50,7 +52,7 @@ In the future I would like to provide functionality (such as interest rates and 
 
 #### Tools used:
 * Java
-* Spring Boot
+* Spring Boot (STS4)
 * MySQL
 * Maven
 * GitHub
