@@ -36,6 +36,9 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 ##### Update account <br> <img width="600" src=.md/updateaccount.png>
 ##### Delete account <br> <img width="600" src=.md/deleteaccount.png>
 
+### Testing
+<img width = 600 src = .md/testresults.jpg>
+
 ### Instructions for executing project:
 * Ensure that port 8080 is free
 * Ensure Lombok is installed onto STS
