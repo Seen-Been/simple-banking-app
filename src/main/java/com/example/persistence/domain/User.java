@@ -31,7 +31,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class User
 {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -51,7 +50,7 @@ public class User
 	private String surname;
 	
 	@Column(unique=true)
-	@Email
+	@Email(message = "Please enter a valid email. Email addresses must contain an '@' and a '.'.")
 	private String email;
 	
 	@Column(unique=true, length = 11)

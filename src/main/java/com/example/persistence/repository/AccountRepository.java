@@ -14,6 +14,10 @@ import com.example.persistence.domain.Account;
 public interface AccountRepository extends JpaRepository<Account, Long>
 {
 	//FIND BY ID
-		@Query("select a from Account a where a.id =?1")
-		List<Account> findAccountById(long id);
+	@Query("select a from Account a where a.id =?1")
+	List<Account> findAccountById(long id);
+	
+	//FIND BY ID
+	@Query("select a from Account a where a.accountNumber =?1")
+	Account findByAccountNumber(String accountNumber);
 }

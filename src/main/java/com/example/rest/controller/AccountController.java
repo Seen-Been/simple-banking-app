@@ -23,49 +23,55 @@ import com.example.service.AccountService;
 public class AccountController
 {
 	@Autowired
-	AccountService aService;
+	AccountService service;
 
 	public AccountController(AccountService aService)
 	{
 		super();
-		this.aService = aService;
+		this.service = aService;
 	}
 	
-//	------------------Postman------------------
+//	------------------CRUD------------------
 	
 	// CREATE USER
 	@PostMapping("/create")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public AccountDto create(@RequestBody Account account)
 	{
-		return this.aService.addAccount(account);
+		return this.service.addAccount(account);
 	}
 	
 	// READ ALL
 	@GetMapping("/read")
 	public List<AccountDto> readAll()
 	{
-		return this.aService.readAccount();
+		return this.service.readAccount();
 	}
 	
 	// READ BY ID
-		@GetMapping("/readid/{id}")
-		public AccountDto readById(@PathVariable long id)
-		{
-			return this.aService.findAccountById(id);
-		}
-
-	// UPDATE USER
-	@PutMapping("/update/{id}")
-	public AccountDto update(@PathVariable long id,@RequestBody Account account)
+	@GetMapping("/readid/{id}")
+	public AccountDto readById(@PathVariable Long id)
 	{
-		return this.aService.updateAccount(id, account);
+		return this.service.findById(id);
+	}
+	// READ BY ACCOUNT NUMBER
+	@GetMapping("/readid/{accountNumber}")
+	public AccountDto readByAccountNumber(@PathVariable String accountNumber)
+	{
+		return this.service.findByAccountNumber(accountNumber);
+	}
+
+	// UPDATE ACCOUNT
+	@PutMapping("/update/{id}")
+	public AccountDto update(@PathVariable Long id,@RequestBody Account account)
+	{
+		return this.service.updateAccount(id, account);
 	}
 	
-	// DELETE USER
+	// DELETE ACCOUNT
 	@DeleteMapping("/delete/{id}")
-	public void delete(@PathVariable long id)
+	public void delete(@PathVariable Long id)
 	{
-		this.aService.deleteUser(id);
+		this.service.deleteAccount(id);
 	}
 }

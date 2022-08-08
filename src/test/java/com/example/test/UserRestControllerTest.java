@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.example.rest.controller.UserController;
 
 @SpringBootTest
-@RunWith(SpringRunner.class) //JUnit 4?
+@RunWith(SpringRunner.class)
 public class UserRestControllerTest 
 {
 	@Autowired

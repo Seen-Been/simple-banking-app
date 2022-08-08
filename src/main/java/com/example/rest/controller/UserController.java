@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.exception.UserRegistrationException;
 import com.example.persistence.domain.User;
 import com.example.rest.dto.UserDto;
 import com.example.service.UserService;
@@ -50,16 +51,23 @@ public class UserController
 
 	// READ BY NAME
 	@GetMapping("/readname/{firstName}/{surname}")
-	public List<User> readByName(@PathVariable String firstName, @PathVariable String surname)
+	public UserDto readByName(@PathVariable String firstName, @PathVariable String surname)
 	{
-		return this.uService.findUserByName(firstName, surname);
+		return this.uService.findByName(firstName, surname);
 	}
 
 	// READ BY ID
 	@GetMapping("/readid/{id}")
 	public UserDto readById(@PathVariable long id)
 	{
-		return this.uService.findUserById(id);
+		return this.uService.findById(id);
+	}
+	
+	// READ BY EMAIL
+	@GetMapping("/reademail/{email}")
+	public UserDto readByEmail(@PathVariable String email)
+	{
+		return this.uService.findByEmail(email);
 	}
 		
 	// UPDATE USER

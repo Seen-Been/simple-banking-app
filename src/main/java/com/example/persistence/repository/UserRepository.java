@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
+import com.example.exception.UserRegistrationException;
 import com.example.persistence.domain.User;
 
 @Repository
@@ -14,14 +15,22 @@ import com.example.persistence.domain.User;
 public interface UserRepository extends JpaRepository<User, Long>
 {
 	// FIND BY NAME
-	@Query("select u from User u where u.firstName =?1 and u.surname =?2")
-	List<User> findUserByName(String firstName, String surname);
+	@Query("SELECT u from User u where u.firstName =?1 and u.surname =?2")
+	User findUserByName(String firstName, String surname);
 	
 	//FIND BY ID
-	@Query("select u from User u where u.id =?1")
-	List<User> findUserById(long userId);
+	@Query("SELECT u from User u where u.id =?1")
+	List<User> findUserById(Long id);
+	
+	//FIND BY EMAIL
+	@Query("SELECT u from User u where u.email =?1")
+	User findUserByEmail(String email);
+	
+	//FIND EXISTING EMAIL
+	@Query("SELECT count(u) = 1 from User u where u.email =?1")
+	public boolean findExistingEmail(String email);
 	
 	//LOGIN DETAILS CHECK
-	@Query("select u from User u where u.username =?1 and u.password =?2")
+	@Query("SELECT u from User u where u.username =?1 and u.password =?2")
 	List<User> login(String username, String password);
 }

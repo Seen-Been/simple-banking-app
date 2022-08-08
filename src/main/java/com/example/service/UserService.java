@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.exception.UserNotFoundException;
+import com.example.exception.UserRegistrationException;
 import com.example.persistence.domain.User;
 import com.example.persistence.repository.UserRepository;
 import com.example.rest.dto.UserDto;
@@ -42,9 +43,9 @@ public class UserService
 	}
 	
 	//UPDATE USER
-	public UserDto updateUser(long userId, User user)
+	public UserDto updateUser(long id, User user)
 	{
-		Optional<User> tempUser = this.repo.findById(userId);
+		Optional<User> tempUser = this.repo.findById(id);
 		User existing = tempUser.get();
 		existing.setFirstName(user.getFirstName());
 		existing.setSurname(user.getSurname());
@@ -82,17 +83,23 @@ public class UserService
 		System.out.println("out --" + flag);
 		return flag;
 	}
-
+	
 	// RETRIEVE USER BY NAME
-	public List<User> findUserByName(String firstName, String surname)
+	public UserDto findByName(String firstName, String surname)
 	{
-		return this.repo.findUserByName(firstName, surname);
+		return mapToDTO(repo.findUserByName(firstName, surname));
 	}
 	
 	// RETRIEVE USER BY ID
-	public UserDto findUserById(long id)
+	public UserDto findById(long id)
 	{
 		User found = this.repo.findById(id).orElseThrow(UserNotFoundException::new);
 		return this.mapToDTO(found);
+	}
+	
+	// RETRIEVE USER BY EMAIL
+	public UserDto findByEmail(String email)
+	{
+		return mapToDTO(repo.findUserByEmail(email));
 	}
 }

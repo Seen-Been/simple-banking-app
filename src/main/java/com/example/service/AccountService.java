@@ -8,9 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.exception.UserNotFoundException;
+import com.example.exception.AccountNotFoundException;
 import com.example.persistence.domain.Account;
-import com.example.persistence.domain.User;
 import com.example.persistence.repository.AccountRepository;
 import com.example.rest.dto.AccountDto;
 
@@ -18,7 +17,7 @@ import com.example.rest.dto.AccountDto;
 public class AccountService
 {
 	@Autowired
-	private AccountRepository aRepo;
+	private AccountRepository repo;
 	@Autowired
 	private ModelMapper mapper;
 	
@@ -29,49 +28,54 @@ public class AccountService
 	
 //	------------------CRUD------------------
 	
-	// CREATE ACCOUNT
+	// CREATE ACCOUNT DTO
 	public AccountDto addAccount(Account account)
 	{
-		Account saved = this.aRepo.save(account);
+		Account saved = this.repo.save(account);
 		return this.mapToDTO(saved);
 	}
 	
 	// READ ALL
 	public List<AccountDto> readAccount()
 	{
-		return this.aRepo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
+		return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
 	}
 	
 	// UPDATE ACCOUNT
-	public AccountDto updateAccount(long accountId, Account account)
+	public AccountDto updateAccount(Long accountId, Account account)
 	{
-		Optional<Account> tempUser = this.aRepo.findById(accountId);
-		Account existing = tempUser.get();
-		User user = new User();
-			
-		if (user.getAccess() == 0 || user.getAccess() == 1)	// 0 = admin, 1 = op, 2 = customer
-		{
-			existing.setAccountType(account.getAccountType());
-			existing.setCardNumber(account.getCardNumber());
-		}
+		Optional<Account> tempAcc = this.repo.findById(accountId);
+		
+		Account existing = tempAcc.get();
+
+		existing.setAccountType(account.getAccountType());
+		existing.setCardNumber(account.getCardNumber());
 		existing.setPin(account.getPin());
 		existing.setBalance(account.getBalance());
 			
-		Account updated = this.aRepo.save(existing);
+		Account updated = this.repo.save(existing);
+		
 		return this.mapToDTO(updated);
 	}
 	// DELETE ACCOUNT
-	public boolean deleteUser(long accountId)
+	public boolean deleteAccount(Long accountId)
 	{
-		this.aRepo.deleteById(accountId);
-		boolean exists = this.aRepo.existsById(accountId);
+		this.repo.deleteById(accountId);
+		boolean exists = this.repo.existsById(accountId);
 		return !exists;
 	}
 
+//	------------------Queries------------------
 	// FIND BY ID
-	public AccountDto findAccountById(long id)
+	public AccountDto findById(Long id)
 	{
-		Account found = this.aRepo.findById(id).orElseThrow(UserNotFoundException::new);
+		Account found = this.repo.findById(id).orElseThrow(AccountNotFoundException::new);
 		return this.mapToDTO(found);
+	}
+	
+	// FIND BY ACCOUNT NUMBER
+	public AccountDto findByAccountNumber(String accountNumber)
+	{
+		return this.mapToDTO(repo.findByAccountNumber(accountNumber));
 	}
 }
