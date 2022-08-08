@@ -8,13 +8,13 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 * add new user <br>
 * add new account <br>
 * update user details <br>
-* update account details <br>
+* delete user using id <br>
 * read all user details <br>
+* update account details <br>
+* delete account using id <br>
 * read all account details <br>
-* read a user's details from id <br>
-* read an account's details from id <br>
-* delete user from id <br>
-* delete account from id <br>
+* read a user's details using id <br>
+* read an account's details using id <br>
 
 ### Project Structure
 <img src=".md/structure.png">
@@ -22,6 +22,7 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 
 ### Database
 <img width="600" src=.md/database.png>
+
 
 ### Execution
 ##### Create user <br> <img width="600" src=".md/createuser.png">
@@ -36,17 +37,20 @@ _This is a simple banking app containing a 'user' CRUD app with one-to-many 'ban
 ##### Update account <br> <img width="600" src=.md/updateaccount.png>
 ##### Delete account <br> <img width="600" src=.md/deleteaccount.png>
 
+
 ### Testing
-#### CRUD unit test <br> <img width = 600 src=.md/testcrud.JPG> <br>
-#### Refactored Create to work with DTO <br> <img width = 600 src=.md/testcreateunit.png> <br>
+#### Service layer unit tests: User <br> <img width = 600 src=.md/testunituser.png> <br>
+#### Service layer unit tests: Account <br> <img width = 600 src=.md/testunitaccount.png> <br>
 #### Rest initialisation <br> <img width = 600 src=.md/testrest.png> <br>
-#### Create User integration test <br> <img src=.md/testcreate.png>
+#### Create User integration test <br> <img src=.md/testintegrationcreate.png>
+
 
 ### Instructions for executing project:
 * Ensure that port 8080 is free
 * Ensure Lombok is installed onto STS
 * Run project as Spring Boot App from project explorer
 * (currently) no front end is available for inputting data, so POSTMAN will have to be used with the http addresses assigned in the user and account controllers.
+
 
 ### Future Revisions
 In the future I would like to provide functionality (such as interest rates and penalties for withdrawing money) from certain account types. I would like to add a front end to make logging in and CRUD operations much more user-friendly.
