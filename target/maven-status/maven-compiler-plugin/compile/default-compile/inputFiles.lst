@@ -1,0 +1,15 @@
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\persistence\domain\Account.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\persistence\domain\User.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\persistence\repository\UserRepository.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\SimpleBankingAppApplication.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\exception\UserRegistrationException.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\persistence\repository\AccountRepository.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\rest\controller\AccountController.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\exception\AccountNotFoundException.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\rest\dto\AccountDto.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\exception\UserNotFoundException.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\service\AccountService.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\rest\controller\UserController.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\rest\dto\UserDto.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\service\UserService.java
+C:\QA\.SPRING\SimpleBankingApp\src\main\java\com\example\config\AppConfig.java

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.exception.UserRegistrationException;
 import com.example.persistence.domain.User;
 import com.example.rest.dto.UserDto;
 import com.example.service.UserService;

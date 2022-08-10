@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.exception.UserNotFoundException;
-import com.example.exception.UserRegistrationException;
 import com.example.persistence.domain.User;
 import com.example.persistence.repository.UserRepository;
 import com.example.rest.dto.UserDto;
